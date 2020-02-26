@@ -58,11 +58,25 @@
 }
 
 .gh-button.gh-button-primary {
+    position: relative;
     color: #fff !important;
     background-color: var(--color-primary);
     box-shadow: none;
 }
 
-.gh-button.gh-button-primary:hover {
-    background-color: color(var(--color-primary) l(-10%));
+.gh-button.gh-button-primary::before {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: var(--radius);
+    transition: background 0.2s ease;
+    mix-blend-mode: overlay;
+}
+
+.gh-button.gh-button-primary:hover::before {
+    background: rgba(0,0,0,0.20);
 }
